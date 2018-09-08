@@ -1,0 +1,35 @@
+syntax = "proto3";
+
+package catalog;
+
+message Product {
+    enum Status {
+        AVAILABLE = 0;
+        OUT_OF_STOCK = 1;
+    }
+    int32 id = 1;
+    string name = 2;
+    float price = 3;
+    repeated string tags = 4;
+    int32 quantity = 5;
+    Status status = 6;
+}
+
+message Catalog {
+    repeated Product products = 1;
+}
+
+enum ApiStatus {
+    UNKNOWN = 0;
+    SUCCESS = 1;
+    FAILED = 2;
+}
+
+message GetCatalogResponse {
+    ApiStatus status = 1;
+    repeated Catalog catalogs = 2;
+}
+
+message AddCatalogResponse {
+    ApiStatus status = 1;
+}

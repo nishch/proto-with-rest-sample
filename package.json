@@ -1,0 +1,17 @@
+{
+  "name": "proto-with-rest",
+  "version": "1.0.0",
+  "description": "a sample application to demonstrate how to use protocol buffers with REST services",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "nishant chaturvedi <nishantchvedi@gmail.com>",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.18.0",
+    "body-parser": "^1.18.3",
+    "express": "^4.16.3",
+    "protobufjs": "^6.8.8"
+  }
+}
