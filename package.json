@@ -1,5 +1,5 @@
 {
-  "name": "proto-with-rest",
+  "name": "proto-with-rest-sample",
   "version": "1.0.0",
   "description": "a sample application to demonstrate how to use protocol buffers with REST services",
   "main": "src/index.js",
