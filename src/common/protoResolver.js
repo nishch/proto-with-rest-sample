@@ -13,6 +13,10 @@ function _init() {
     }
 }
 
+/**
+ * searches and returns a type in the loaded proto files
+ * @param {string} messageType name of the type to resolve example: "Product", "Catalog"
+ */
 function resolveType(messageType) {
     const resolved = _pkg.lookupTypeOrEnum(messageType);
     resolved.resolveAll();
@@ -22,6 +26,12 @@ function resolveType(messageType) {
     return null;
 }
 
+
+/**
+ * Serializes plain js objects to Buffer which conforms to protobuf message
+ * @param {string} messageType name of the type to resolve example: "Product", "Catalog"
+ * @param {object} message js plain object which need to be serialized into protobuf buffers
+ */
 function encodeMessage(messageType, message) {
     const messageProto = resolveType(messageType);
     const validationErr = messageProto.verify(message);
@@ -33,6 +43,11 @@ function encodeMessage(messageType, message) {
     return messageProto.encode(messageProto.create(message)).finish();
 }
 
+/**
+ * Marshals Buffer to plain js objects
+ * @param {string} messageType name of the type to resolve example: "Product", "Catalog"
+ * @param {Buffer|Uint8Array} data buffer which needs to be deserialized
+ */
 function decodeMessage(messageType, data) {
     const messageProto = resolveType(messageType);
     const parsed = messageProto.decode(data);
